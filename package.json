@@ -1,0 +1,13 @@
+{
+  "name": "webapp",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx browser-sync -w"
+  },
+  "keywords": [],
+  "author": "rafael masselli",
+  "devDependencies": {
+    "browser-sync": "^2.27.11"
+  }
+}
