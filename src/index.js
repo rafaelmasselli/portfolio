@@ -4,6 +4,6 @@ import "https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.j
 import "https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.min.js";
 import "https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js";
 
-import factorieyTfjs from "./factories/tfjs.factories.js";
+import HandGestureFactory from "./factories/handGestureFactory.js";
 
-await factorieyTfjs.initialize();
+await HandGestureFactory.initialize();
