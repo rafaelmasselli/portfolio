@@ -9,7 +9,6 @@ import {
 import HandGestureView from "../views/handGestureView.js";
 
 // let styler = new PseudoStyler();
-
 // const camera = await Camera.init();
 
 const factory = {

@@ -4,19 +4,18 @@ class Navbar extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
     this.state = {
-      iconSrc: "./",
-      iconAlt: "Descrição da imagem",
+      iconSrc: "../../assets/icon__navbar.png",
+      iconAlt: "icon da navbar",
     };
 
     this.render();
   }
 
   connectedCallback() {
-    // Exemplo de atualização do estado após algum evento
     setTimeout(() => {
       this.setState({
-        iconSrc: "caminho/para/outra/imagem.jpg",
-        iconAlt: "Nova descrição da imagem",
+        iconSrc: "../../assets/icon__navbar.png",
+        iconAlt: "icon da navbar",
       });
     }, 3000);
   }
