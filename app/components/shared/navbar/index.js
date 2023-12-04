@@ -4,7 +4,7 @@ class Navbar extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
     this.state = {
-      iconSrc: "../../assets/icon__navbar.png",
+      iconSrc: "app/assets/icon__navbar.png",
       iconAlt: "icon da navbar",
     };
 
@@ -14,7 +14,7 @@ class Navbar extends HTMLElement {
   connectedCallback() {
     setTimeout(() => {
       this.setState({
-        iconSrc: "../../assets/icon__navbar.png",
+        iconSrc: "app/assets/icon__navbar.png",
         iconAlt: "icon da navbar",
       });
     }, 3000);
@@ -35,19 +35,59 @@ class Navbar extends HTMLElement {
           backdrop-filter: blur(10px);
         }
 
+        .navbar div{
+          margin: 0 50px;
+        }
+
         .navbar__container {
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
+
+        .nav__links ul {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+        }
+        .nav__links li{
+          cursor: pointer;
+          list-style-type: none;
+          margin: 12px;
+          color: #DEDEDE;
+          font-family: Manrope;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          letter-spacing: -0.5px;
+        }
+
+        .nav__links li:hover{
+          color: black;
+        }
+
+        .nav__links a{
+          text-decoration-color: none;
+        }
+
       </style>
+
       <header class="navbar navbar__container">
         <div>
           <img src="${this.state.iconSrc}" alt="${this.state.iconAlt}" />
         </div>
-        <div>
+        <div class="nav__links" >
           <ul>
-            <li>Item de menu</li>
+            <a href="/" onclick="route()">
+              <li>Home</li>
+            </a>
+            <a href="/work" onclick="route()">
+              <li>Work</li>
+            </a>
+            <a href="/contact" onclick="route()">  
+              <li>Contact</li>  
+            </a>
           </ul>
         </div>
       </header>
