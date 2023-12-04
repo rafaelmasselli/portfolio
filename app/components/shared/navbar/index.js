@@ -1,33 +1,59 @@
-class navbar extends HTMLElement {
+class Navbar extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
-    const header = document.createElement("header");
-    header.setAttribute("class", "navbar navbar__container");
+    this.attachShadow({ mode: "open" });
+    this.state = {
+      iconSrc: "./",
+      iconAlt: "Descrição da imagem",
+    };
 
-    const styleHeader = document.createElement("style");
-    styleHeader.textContent = `
-    .navbar {
+    this.render();
+  }
+
+  connectedCallback() {
+    // Exemplo de atualização do estado após algum evento
+    setTimeout(() => {
+      this.setState({
+        iconSrc: "caminho/para/outra/imagem.jpg",
+        iconAlt: "Nova descrição da imagem",
+      });
+    }, 3000);
+  }
+
+  setState(newState) {
+    this.state = { ...this.state, ...newState };
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        .navbar {
           width: 100%;
           height: 50px;
-        
           background: rgba(50, 50, 50, 0.7);
           backdrop-filter: blur(10px);
         }
 
         .navbar__container {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
-        
-          flex-direction: space-between;
         }
+      </style>
+      <header class="navbar navbar__container">
+        <div>
+          <img src="${this.state.iconSrc}" alt="${this.state.iconAlt}" />
+        </div>
+        <div>
+          <ul>
+            <li>Item de menu</li>
+          </ul>
+        </div>
+      </header>
     `;
-
-    shadow.appendChild(styleHeader);
-    shadow.appendChild(header);
   }
 }
 
-customElements.define("nav-bar", navbar);
+customElements.define("nav-bar", Navbar);
