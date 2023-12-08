@@ -1,12 +1,28 @@
-import "../gesture/src/index.js";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@4.2.0/dist/tf-core.min.js";
+import "https://unpkg.com/@tensorflow/tfjs-backend-webgl@3.7.0/dist/tf-backend-webgl.min.js";
+import "https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.js";
+import "https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.min.js";
+import "https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js";
+import HandGestureFactory from "./factories/handGestureFactory.js";
 
 import "./App.css";
 
 function App() {
+  const [camTensorFlow, setCamTensorflow] = useState(false);
+
+  async function inicializeTensorFlow() {
+    await HandGestureFactory.initialize();
+  }
+
+  useEffect(() => {
+    if (camTensorFlow) {
+      inicializeTensorFlow();
+    }
+  }, []);
+
   return (
     <div className="container">
-      <canvas id="hands"></canvas>
       <h1>Hello world</h1>
     </div>
   );

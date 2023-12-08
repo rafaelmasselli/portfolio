@@ -1,12 +1,12 @@
 import Camera from "../../lib/shared/cam.js";
-import HandGestureController from "../controllers/handGestureController.js";
-import HandGestureService from "../services/handGestureService.js";
+import HandGestureController from "../controllers/HandGestureController.js";
+import HandGestureService from "../services/HandGestureService.js";
 import {
   fingerLookupIndexes,
   gestureStrings,
   knownGestures,
 } from "../utils/util.js";
-import HandGestureView from "../views/handGestureView.js";
+import HandGestureView from "../views/HandGestureView.js";
 
 // eslint-disable-next-line no-undef
 let styler = new PseudoStyler();

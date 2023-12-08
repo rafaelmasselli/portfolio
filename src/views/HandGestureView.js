@@ -1,25 +1,41 @@
 export default class HandGestureView {
-  #handsCanvas = document.querySelector("#hands");
-  #canvasContext = this.#handsCanvas.getContext("2d");
+  #handsCanvas;
+  #canvasContext;
   #fingerLookupIndexes;
   #styler;
+
   constructor({ fingerLookupIndexes, styler }) {
+    this.#handsCanvas = document.querySelector("#hands");
+
+    if (!this.#handsCanvas) {
+      console.error('Elemento canvas com ID "hands" não encontrado.');
+      return;
+    }
+
+    this.#canvasContext = this.#handsCanvas.getContext("2d");
+
+    if (!this.#canvasContext) {
+      console.error("Não foi possível obter o contexto 2D do canvas.");
+      return;
+    }
+
     this.#handsCanvas.width = globalThis.screen.availWidth;
     this.#handsCanvas.height = globalThis.screen.availHeight;
     this.#fingerLookupIndexes = fingerLookupIndexes;
     this.#styler = styler;
 
-    //  carrega os estilos assincronamente
+    // Carrega os estilos assincronamente
     setTimeout(() => styler.loadDocumentStyles(), 200);
   }
-
   clearCanvas() {
-    this.#canvasContext.clearRect(
-      0,
-      0,
-      this.#handsCanvas.width,
-      this.#handsCanvas.height
-    );
+    if (this.#canvasContext) {
+      this.#canvasContext.clearRect(
+        0,
+        0,
+        this.#handsCanvas.width,
+        this.#handsCanvas.height
+      );
+    }
   }
 
   drawResults(hands) {
