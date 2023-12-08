@@ -1,6 +1,7 @@
 function supportsWorkerType() {
   let supports = false;
   const tester = {
+    // eslint-disable-next-line getter-return
     get type() {
       supports = true;
     },
@@ -9,6 +10,7 @@ function supportsWorkerType() {
   try {
     new Worker("blob://", tester).terminate();
   } finally {
+    // eslint-disable-next-line no-unsafe-finally
     return supports;
   }
 }

@@ -1,4 +1,4 @@
-import { prepareRunChecker } from "../../../../lib/shared/util.js";
+import { prepareRunChecker } from "../../lib/shared/util.js";
 
 const { shouldRun: scrollShouldRun } = prepareRunChecker({ timerDelay: 200 });
 const { shouldRun: clickShouldRun } = prepareRunChecker({ timerDelay: 600 });
@@ -45,6 +45,7 @@ export default class HandGestureController {
         event,
         x,
         y,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         handedness,
       } of this.#service.detectGestures(hands)) {
         // Reconhece os gesto por mao individual

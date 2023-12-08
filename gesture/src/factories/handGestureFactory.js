@@ -8,8 +8,9 @@ import {
 } from "../utils/util.js";
 import HandGestureView from "../views/handGestureView.js";
 
-// let styler = new PseudoStyler();
-// const camera = await Camera.init();
+// eslint-disable-next-line no-undef
+let styler = new PseudoStyler();
+const camera = await Camera.init();
 
 const factory = {
   async initialize() {

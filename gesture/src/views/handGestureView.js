@@ -27,9 +27,9 @@ export default class HandGestureView {
       if (!keypoints) continue;
 
       this.#canvasContext.fillStyle =
-        handedness === "Left" ? "yellow" : "yellow";
-      this.#canvasContext.strokeStyle = "green";
-      this.#canvasContext.lineWidth = 1;
+        handedness === "Left" ? "rgb(44, 212, 103)" : "rgb(44, 212, 103)";
+      this.#canvasContext.strokeStyle = "red";
+      this.#canvasContext.lineWidth = 5;
       this.#canvasContext.lineJoin = "round";
 
       // juntas
