@@ -1,4 +1,4 @@
-import Camera from "../../lib/shared/cam.js";
+import Camera from "../../../lib/shared/cam.js";
 import HandGestureController from "../controllers/HandGestureController.js";
 import HandGestureService from "../services/HandGestureService.js";
 import {
