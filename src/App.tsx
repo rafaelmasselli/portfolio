@@ -5,21 +5,19 @@ import "https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.
 import "https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js";
 
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/home";
 
 import "./App.css";
+import { Navbar } from "./components/shared/navbar";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-  ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
   );
 }
