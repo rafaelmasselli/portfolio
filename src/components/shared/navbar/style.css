@@ -13,7 +13,7 @@
 }
 
 .navbar nav {
-  margin: 40px;
+  margin: 0 40px;
 }
 
 .navbar ul li {
@@ -26,4 +26,78 @@
 
 .navbar ul li:hover {
   color: #a0a0a0;
+}
+.responsive__line__navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.responsive__line__navbar.active .line1 {
+  transform: rotate(-45deg) translate(-5px, 7px);
+}
+
+.responsive__line__navbar.active .line2 {
+  opacity: 0;
+}
+
+.responsive__line__navbar.active .line3 {
+  transform: rotate(45deg) translate(-5px, -9px);
+}
+
+.line {
+  width: 26px;
+  border: 2px solid #dedede;
+  margin: 5px;
+  transition: all 0.3s;
+}
+
+.responsive__navbar {
+  position: fixed;
+  width: 100%;
+  left: -100%;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.visible {
+  left: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.responsive__navbar li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 10px;
+  border-bottom: 2px solid #dedede;
+}
+
+.responsive__navbar,
+.responsive__line__navbar {
+  display: none;
+}
+
+@media (max-width: 481px) {
+  .navbar .responsive__navigation {
+    display: none;
+  }
+  .responsive__navbar,
+  .responsive__line__navbar {
+    display: block;
+  }
+}
+
+@media (max-width: 340px) {
+  .navbar nav {
+    margin: 0 10px;
+  }
 }
