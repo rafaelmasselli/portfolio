@@ -20,3 +20,10 @@
   width: 30px;
   height: 30px;
 }
+
+@media (max-width: 325px) {
+  .btn {
+    width: 250px;
+    height: 64px;
+  }
+}
