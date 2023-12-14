@@ -61,6 +61,7 @@
   left: -100%;
   text-align: center;
   transition: all 0.2s;
+  background: rgba(50, 50, 50, 0.7);
 }
 
 .visible {
