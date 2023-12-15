@@ -11,7 +11,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({ showIcon, title, ...props }: ButtonProps) {
   return (
     <button {...props} className="btn container">
-      {showIcon && <img src={github} />} {title}
+      {showIcon && (
+        <figure>
+          <img src={github} />
+        </figure>
+      )}
+      {title}
     </button>
   );
 }
