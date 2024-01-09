@@ -10,6 +10,7 @@ import { Home } from "./pages/home";
 
 import "./App.css";
 import { Navbar } from "./components/shared/navbar";
+import { Widget } from "./components/shared/Widget";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Widget />
     </>
   );
 }
