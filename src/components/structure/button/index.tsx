@@ -1,6 +1,4 @@
 import React from "react";
-
-import "./style.css";
 import { openContact } from "../../../util/contact";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,9 +6,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ link, ...props }: ButtonProps) {
-  let title;
   const Link = link[0].toLocaleLowerCase();
-
+  let title;
   if (Link === "c") {
     title = "Currículo";
   } else if (Link === "g") {

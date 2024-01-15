@@ -41,13 +41,7 @@ export default class HandGestureController {
 
       if (hands?.length) this.#view.drawResults(hands);
 
-      for await (const {
-        event,
-        x,
-        y,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        handedness,
-      } of this.#service.detectGestures(hands)) {
+      for await (const { event, x, y } of this.#service.detectGestures(hands)) {
         // Reconhece os gesto por mao individual
         // if (handedness.includes("Right") && event.includes("scroll-up"))
         //   continue;

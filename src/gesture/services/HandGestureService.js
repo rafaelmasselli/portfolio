@@ -21,7 +21,7 @@ export default class HandGestureService {
     const prediction = await this.#gestureEstimator.estimate(
       this.#getLandMarksFromKeyPoints(hand.keypoints3D),
       // porcentagem de confiança do gesto exp 90%
-      8
+      9
     );
     const handedness = hand.handedness;
     const predictions = {
@@ -70,7 +70,7 @@ export default class HandGestureService {
         this.#handsVersion
       }`,
       // full é o mais pesado e o mais preciso
-      modelType: "full",
+      modelType: "lite",
       maxHands: 2,
     };
     this.#detector = await this.#handPoseDetection.createDetector(
