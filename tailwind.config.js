@@ -3,8 +3,10 @@ export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      backgroundColor: {
-        "gray-70": "rgba(50, 50, 50, 0.70);",
+      colors: {
+        black: {
+          700: "#202020",
+        },
       },
     },
   },

@@ -3,24 +3,33 @@ import "https://unpkg.com/@tensorflow/tfjs-backend-webgl@3.7.0/dist/tf-backend-w
 import "https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.js";
 import "https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.min.js";
 import "https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js";
+// import "./gesture/factories/handGestureFactory";
 
-import React from "react";
+import "./App.css";
+
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/home";
 
-import "./App.css";
 import { Navbar } from "./components/shared/navbar";
-import { Widget } from "./components/shared/Widget";
+import { Widget } from "./components/shared/widget";
+import { useState } from "react";
+import { transitionDarkModeCss } from "./util/transitionDarkModCss";
 
 function App() {
+  const [darkMod, setDarkMod] = useState(true);
+
   return (
-    <>
-      <Navbar />
+    <div
+      className={`${
+        darkMod ? "bg-black-700" : "bg-white"
+      } h-[2000px] ${transitionDarkModeCss}`}
+    >
+      <Navbar darkMod={darkMod} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home darkMod={darkMod} />} />
       </Routes>
-      <Widget />
-    </>
+      <Widget darkMod={darkMod} setDarkMod={setDarkMod} />
+    </div>
   );
 }
 

@@ -1,132 +1,34 @@
 import React from "react";
+import { cardProps } from "interface/cardProject";
 
 import "./style.css";
 
-interface CardProps {
-  title: string;
-  description: string;
-  tags: [];
-}
+export function CardProject({ name, url, topics }: cardProps) {
+  function linkProject() {
+    window.open(url);
+  }
 
-export function CardProject({ description, title }: CardProps) {
   return (
     <div className="card container__card">
-      <div className="title__card">
-        <h2>{title}</h2>
-      </div>
-      <div>
-        <div className="slider">
-          <div className="slide-track">
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-            <div className="slide">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png"
-                height="100"
-                width="250"
-                alt=""
-              />
-            </div>
-          </div>
+      <div></div>
+      <div className="container__name__and__tags">
+        <div>
+          <h3>{name}</h3>
+        </div>
+        <div className="tags">
+          {topics.length === 0 ? (
+            <p>sem tópico disponível</p>
+          ) : (
+            topics.map((res, index) => (
+              <div key={index} className="card__tag">
+                <p>{res}</p>
+              </div>
+            ))
+          )}
         </div>
       </div>
-      <div className="description__card">
-        <h5>Descrição do projeto</h5>
-        <p>{description}</p>
+      <div className="btn__view__project">
+        <button onClick={linkProject}>ver projeto</button>
       </div>
     </div>
   );

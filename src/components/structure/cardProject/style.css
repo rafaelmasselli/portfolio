@@ -1,98 +1,150 @@
-.animationSpeed {
-  animation-duration: 40s;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-300px * 7));
-  }
-}
-
-.slider {
+/* .card {
+  width: 456px;
+  height: 200px;
   background: white;
-  height: 100px;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
+
+  border-radius: 20px;
+  background: linear-gradient(0deg, #323443 0%, #323443 100%), #eff6ff;
+  text-decoration-color: red;
+  margin: 20px;
 }
 
-.slider::before,
-.slider::after {
-  content: "";
-  height: 100px;
-  position: absolute;
-  width: 100px;
-  z-index: 2;
+.card__description,
+.container__icons__technologies {
+  margin: 0 30px;
 }
 
-.slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
+.card__title {
+  color: #fff;
+
+  margin: 100px 0 30px 30px ;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.slider::before {
-  left: 0;
-  top: 0;
+.card__description {
+  width: 380px;
+  height: 70px;
+  font-size: 15px;
+  margin-top: -10px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f2f2f2;
+  padding-right: 10px;
 }
 
-.slide-track {
-  animation: scroll 40s linear infinite;
+.card__description::-webkit-scrollbar {
+  width: 10px;
+}
+
+.card__description::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.card__description::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}
+
+.container__icons__technologies {
   display: flex;
-  width: calc(250px * 14);
+  justify-content: space-between;
 }
 
-.slide {
-  height: 100px;
-  width: 200px;
+.container__icons__technologies img {
+  width: 35px;
+  height: 35px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.container__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.icon__profile {
+  width: 45px;
+  border-radius: 100px;
 }
 
 .card {
-  width: 300px;
-  height: 250px;
+  margin: 10px;
+}
+
+.container__card {
+  width: 490px;
+  height: 90px;
+  border-radius: 20px;
   background: white;
 
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
-  overflow: auto;
-}
-.card::-webkit-scrollbar {
-  width: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card::-webkit-scrollbar-thumb {
-  background-color: rgba(50, 50, 50, 0.7);
-  border-radius: 10px;
+.icon__profile,
+.card__title,
+.btn__view__project {
+  margin: 20px;
 }
 
-.card::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
+.btn__view__project button {
+  border-radius: 12px;
+  border: 1px solid #3c3c43;
+  background: #3c3c43;
+
+  color: white;
+  width: 80px;
+  height: 33px;
 }
 
-.title__card,
-.descriptioon__card {
-  text-align: center;
-}
-
-.title__card h2 {
+.card__title {
   color: #000;
-  font-size: 25px;
-  margin: 10px 0;
-}
 
-.description__card {
-  text-align: center;
-}
-
-.description__card p {
-  margin: 0 15px;
-}
-
-
-.description__card h5 {
   font-size: 20px;
-  margin: 15px 0 5px 0;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  margin: 20px;
+}
+
+.card__title,
+.card__description {
+  color: black;
+}
+
+.container__name__and__tags {
+  width: 290px;
+  color: black;
+}
+
+.container__name__and__tags h3 {
+  margin: 10px 0 15px 0;
+  font-size: 15px;
+}
+
+.card__tag {
+  margin: 0 5px 0 0;
+  border-radius: 100px;
+  width: 55px;
+  height: 19px auto;
+  border: 1px solid #3c3c43;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.tags p {
+  font-size: 9px;
+}
+
+.tags {
+  display: flex;
+  margin-top: 10px;
+  overflow: hidden;
 }

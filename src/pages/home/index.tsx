@@ -1,54 +1,68 @@
-import React from "react";
-import "./style.css";
-import { Button } from "../../components/structure/button";
-import { CardProject } from "../../components/structure/cardProject";
-import { api } from "../../lib/axio";
+import { darkMod } from "../../interface/darkMod";
+import IconProfile from "../../assets/grin smile.png";
+import { useEffect, useState } from "react";
+import ParticleComponent from "../../components/structure/particles/";
 
-export function Home() {
-  api.get("").then((response) => {
-    console.log(response.data);
-  });
+export function Home({ darkMod }: darkMod) {
+  const [currentImage, setCurrentImage] = useState(0);
 
-  function linkGithub() {
-    window.open("https://github.com/rafaelmasselli");
-  }
+  const imgHelloWord = [
+    darkMod
+      ? "https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=25&pause=1000&color=FFFFFF&center=true&vCenter=true&random=false&width=500&lines=print(%22Hello,+world%22)"
+      : "https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=25&pause=1000&color=000000&center=true&vCenter=true&random=false&width=500&lines=print(%22Hello,+world%22)",
+    darkMod
+      ? "https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=25&pause=1000&color=FFFFFF&center=true&vCenter=true&random=false&width=500&lines=console.log(%22Hello,+world%22)"
+      : "https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=25&pause=1000&color=000000&center=true&vCenter=true&random=false&width=500&lines=console.log(%22Hello,+world%22)",
+  ];
+
+  useEffect(() => {
+    const updateImage = () => {
+      setCurrentImage((prevImage) => (prevImage + 1) % imgHelloWord.length);
+    };
+    const intervalId = setInterval(updateImage, 6500);
+    return () => clearInterval(intervalId);
+  }, [darkMod, imgHelloWord.length]);
 
   return (
-    <div className="container container__home">
-      <main>
-        <section>
-          <div className="container profile__content">
-            <div className="container__profile__content">
-              <h2>
-                Ola, o meu nome e Rafael <br></br> sou um desenvolvedor Full
-                stack{" "}
-              </h2>
-              <h5>
-                Como desenvolvedor full stack, estou comprometido em transformar
-                ideias em realidade, combinando habilidades sólidas em front-end
-                e back-end.
-              </h5>
-              <div className="container___button">
-                <Button
-                  title="Veja meus projetos"
-                  showIcon
-                  onClick={linkGithub}
+    <div>
+      <main className="flex justify-center items-center">
+        <div className="w-full ">
+          <div className="flex justify-center items-center flex-wrap mt-40 ">
+            <div className="flex justify-center flex-col">
+              <figure>
+                <img
+                  src={IconProfile}
+                  alt=""
+                  className="w-44 rounded-full mt-[-50px] mb-[-10px] "
                 />
-              </div>
+              </figure>
             </div>
-            <figure className="container__img">
-              <img src="https://github.com/rafaelmasselli.png" alt="" />
-            </figure>
-          </div>
-        </section>
-        <div className="container__projects__content container">
-          <h2>Projetos pessoais</h2>
-          <div className="container__cards">
-            <CardProject
-              description="O projeto consiste no desenvolvimento do back-end do site de streaming Netflix, utilizando autenticação com token JWT. Para a implementação, foi utilizado o framework NestJS e o banco de dados PostgreSQL, que está hospedado em ambiente Docker"
-              title="api-netflix"
-              tags={[]}
-            />
+            {/* <ParticleComponent /> */}
+            <section>
+              <div className="flex-wrap ml-1 text-center md:text-left">
+                <h2
+                  className={`mt-10  ${
+                    darkMod ? "text-white" : "text-black"
+                  } font-['roboto'] md:text-3xl font-bold mt-8 md:mt-0`}
+                >
+                  Olá, meu nome é Rafael Ykher Masselli.
+                </h2>
+                <h2
+                  className={`${
+                    darkMod ? "text-slate-400" : "text-slate-800"
+                  } font-['roboto'] md:text-lg  font-normal`}
+                >
+                  Engenheiro de software && Desenvolvedor Full-Stack
+                </h2>
+                <div className="bg-black w-full flex">
+                  <img
+                    src={imgHelloWord[currentImage]}
+                    alt="Typing SVG"
+                    className=""
+                  />
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </main>

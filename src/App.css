@@ -8,8 +8,12 @@
   border: 0;
 }
 
+#hands {
+  position: absolute; 
+  z-index: 9999; 
+}
+
 body {
-  background: #202020;
   font-family: "Roboto", sans-serif;
 }
 

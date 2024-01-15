@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force",
     "test": "react-scripts test",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -19,8 +19,11 @@
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-particles": "^2.12.2",
     "react-router-dom": "^6.20.1",
-    "sort-by": "^1.2.0"
+    "react-tsparticles": "^2.12.2",
+    "sort-by": "^1.2.0",
+    "tsparticles": "^3.0.3"
   },
   "devDependencies": {
     "@testing-library/react": "^14.1.2",
