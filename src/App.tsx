@@ -9,11 +9,13 @@ import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/home";
+import { Projects } from "./pages/projects";
 
 import { Navbar } from "./components/shared/navbar";
 import { Widget } from "./components/shared/widget";
 import { useState } from "react";
 import { transitionDarkModeCss } from "./util/transitionDarkModCss";
+import { NotFound } from "./pages/notFound";
 
 function App() {
   const [darkMod, setDarkMod] = useState(true);
@@ -22,11 +24,13 @@ function App() {
     <div
       className={`${
         darkMod ? "bg-black-700" : "bg-white"
-      } h-[2000px] ${transitionDarkModeCss}`}
+      }  ${transitionDarkModeCss}`}
     >
       <Navbar darkMod={darkMod} />
       <Routes>
         <Route path="/" element={<Home darkMod={darkMod} />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<NotFound darkMod={darkMod} />} />
       </Routes>
       <Widget darkMod={darkMod} setDarkMod={setDarkMod} />
     </div>

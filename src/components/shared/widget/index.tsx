@@ -5,7 +5,7 @@ import { ContentWidget } from "./contentWidget";
 
 export function Widget({ darkMod, setDarkMod }: WidgetProps) {
   return (
-    <Popover className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex flex-col items-end">
+    <Popover className="fixed bottom-4 right-4 md:bottom-8 md:right-8 flex flex-col items-end">
       <Popover.Panel>
         <ContentWidget darkMod={darkMod} setDarkMod={setDarkMod} />
       </Popover.Panel>

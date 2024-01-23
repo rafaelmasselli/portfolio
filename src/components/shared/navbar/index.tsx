@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { darkMod } from "../../../interface/darkMod";
 import { transitionDarkModeCss } from "../../../util/transitionDarkModCss";
+import { useScrollToSection } from "../../../util/handleScroll";
 
-export function Navbar({ darkMod }: darkMod) {
+interface navBarProps {
+  darkMod: boolean;
+}
+
+export function Navbar({ darkMod }: navBarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { handleScrollingFromScratch } = useScrollToSection();
 
   const linkNavBarResponsive = `${
     darkMod ? "text-gray-300" : "text-black"
-  } hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold`;
+  } hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold ${transitionDarkModeCss} cursor-pointer`;
   const linkNavBar = `${
     darkMod ? "text-gray-300" : "text-black"
-  } hover:bg-gray-500 hover:text-white px-3 py-2 rounded-md text-sm font-semibold ${transitionDarkModeCss}`;
+  } hover:bg-gray-500 hover:text-white px-3 py-2 rounded-md text-sm font-semibold ${transitionDarkModeCss} cursor-pointer`;
 
   return (
     <nav
@@ -23,28 +27,31 @@ export function Navbar({ darkMod }: darkMod) {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center justify-between w-full">
             <div className="flex-shrink-0">
-              <span
+              <button
+                onClick={handleScrollingFromScratch}
                 className={`${
                   darkMod ? "text-white" : "text-black"
                 } text-lg font-bold ${transitionDarkModeCss}`}
               >
                 Rafael Masselli
-              </span>
+              </button>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link to="#" className={linkNavBar}>
+                <button
+                  onClick={handleScrollingFromScratch}
+                  className={linkNavBar}
+                >
                   Inicio
-                </Link>
-                <Link to="#" className={linkNavBar}>
-                  Contato
-                </Link>
-                <Link to="#" className={linkNavBar}>
-                  GBA
-                </Link>
-                <Link to="#" className={linkNavBar}>
+                </button>
+                <button className={linkNavBar}>Sobre</button>
+                <button
+                  className={`${
+                    darkMod ? "text-gray-300" : "text-black"
+                  } hover:bg-gray-900 hover:text-red-600 px-3 py-2 rounded-md text-sm font-semibold ${transitionDarkModeCss} cursor-pointer`}
+                >
                   Projetos
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -94,18 +101,20 @@ export function Navbar({ darkMod }: darkMod) {
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#" className={linkNavBarResponsive}>
+            <button
+              onClick={handleScrollingFromScratch}
+              className={linkNavBarResponsive}
+            >
               Inicio
-            </a>
-            <a href="#" className={linkNavBarResponsive}>
-              Contato
-            </a>
-            <a href="#" className={linkNavBarResponsive}>
-              GBA
-            </a>
-            <a href="#" className={linkNavBarResponsive}>
+            </button>
+            <button className={linkNavBarResponsive}>Sobre</button>
+            <button
+              className={`${
+                darkMod ? "text-orange-600" : "text-black"
+              } hover:bg-gray-900 hover:text-red-600 block px-3 py-2 rounded-md text-base font-semibold ${transitionDarkModeCss} cursor-pointer`}
+            >
               Projetos
-            </a>
+            </button>
           </div>
         </div>
       )}
